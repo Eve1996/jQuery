@@ -4,17 +4,42 @@
   <meta charset="UTF-8">
   <title>一闪一闪亮晶晶</title>
   <style>
+    img{ display: block}
   </style>
 </head>
 <body>
-<img src="../project_Other/star.png">
-<img src="../project_Other/star.png">
-<img src="../project_Other/star.png">
-<img src="../project_Other/star.png">
+<img src="../studyDoc/img/star.png" id="s1">
+<img src="../studyDoc/img/star.png" id="s2">
+<img src="../studyDoc/img/star.png" id="s3">
+<img src="../studyDoc/img/star.png" id="s4">
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
-  
+  $("#s2").click(function(){        //stop()  只能停止当前正在播放的一个动画
+                                    //解决：  .stop(true)  停止动画，并清空队列
+    if(!$(this).is(":animated")){
+      $(this).animate({left:400},2000).animate({top:400})
+    }else{
+      $(this).stop(true);
+    }
+   
+  })
+  $("#s3").click(function(){
+$(this).animate({
+  left:400,
+  top:200
+},2000)
+  })
+  $("#s4").click(function(){
+    alert("疼");
+    $(this).animate({
+      width:200,
+      heigth:200,
+      marginTop:-36,
+      marginLeft:-36,
+      opacity:0
+    },2000)
+  })
 </script>
 </body>
 </html>
